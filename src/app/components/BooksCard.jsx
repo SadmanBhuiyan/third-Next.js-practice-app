@@ -1,7 +1,7 @@
 import React from 'react';
-
+import Link from 'next/link';
 const BooksCard = ({ book }) => {
-    const { title, author, genre, rating, price } = book;
+    const { id, title, author, genre, rating, price } = book;
     return (
         <div className="card bg-base-100 shadow-sm">
             <div className="card-body">
@@ -10,7 +10,10 @@ const BooksCard = ({ book }) => {
                 <p className='text-blue-500'>Genre: {genre}</p>
                 <p className='text-yellow-300'>Rating: {rating}</p>
                 <p className='text-green-400'>Price: ${price}</p>
-                <div className="card-actions justify-end">
+                <div className="card-actions justify-between">
+                    <Link href={`/books/${id}`}>
+                        <button className="btn btn-primary">Show details</button>
+                    </Link>
                     <button className="btn btn-primary">Buy Now</button>
                 </div>
             </div>

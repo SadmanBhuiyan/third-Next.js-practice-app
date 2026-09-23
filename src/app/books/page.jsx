@@ -2,7 +2,7 @@ import React from 'react';
 import BooksCard from '../components/BooksCard';
 
 const getBooks = async () => {
-    const res = await fetch('http://localhost:5000/books', { cache: 'no-cache' })
+    const res = await fetch('http://localhost:5000/books', { next: { revalidate: 20 } })
     if (!res.ok) {
         throw new Error('Failed to fetch information of books!')
     }
